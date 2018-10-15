@@ -12,7 +12,7 @@ reddit().then(links => {
           tumblr.post({
             caption: link.title,
             data64: image,
-            source: "http://www.reddit.com/" + links[0].permalink
+            source: "http://www.reddit.com/" + link.permalink
           });
         })
         .catch(err => console.error(err.message));
