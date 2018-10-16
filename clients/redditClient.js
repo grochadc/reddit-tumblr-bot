@@ -1,12 +1,12 @@
 const axios = require("axios");
 
-module.exports = function reddit() {
+module.exports = function reddit(subreddit) {
   return new Promise((resolve, reject) => {
-    axios("https://www.reddit.com/r/natureisfuckinglit/top.json")
+    axios("https://www.reddit.com/" + subreddit)
       .then(({ data }) => {
-        let subreddit = data;
+        let posts = data.children;
         resolve(
-          subreddit.data.children.map(({ data }) => {
+          posts.map(({ data }) => {
             const { url, title, permalink } = data;
             return {
               url,
