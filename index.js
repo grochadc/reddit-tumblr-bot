@@ -1,13 +1,12 @@
-require("dotenv").config();
-const reddit = require("./reddit.js");
-const tumblr = require("./tumblrClient.js");
-const getImageData = require("./getImageData.js");
+const reddit = require("./clients/redditClient.js");
+const tumblr = require("./clients/tumblrClient.js");
+const getImageData = require("./lib/getImageData.js");
 
 reddit().then(links => {
   links.forEach(link => {
     let extension = link.url.substr(link.url.length - 3);
     if (extension === "png" || "jpg" || "peg") {
-      getImageData(link.url)
+      getImageData(link.url) //returns image in base64
         .then(image => {
           tumblr.post({
             caption: link.title,
@@ -19,8 +18,3 @@ reddit().then(links => {
     }
   });
 });
-
-/* getImageData("https://i.imgur.com/YvijplN.jpg")
-  .then(image => console.log(image))
-  .catch(err => console.error("Error:", err.message));
-  */
