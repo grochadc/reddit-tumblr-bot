@@ -19,7 +19,22 @@ module.exports = {
         caption: params.caption,
         data64: params.data64
       })
-      .then(result => console.log(result))
-      .catch(err => console.error(err));
+      .then(result => {
+        console.log(
+          "Processing index",
+          params.link_index ? params.link_index : '',
+          " name ",
+          params.name
+        );
+        console.log(result);
+      })
+      .catch(err => {
+        console.error(err)
+        console.log(
+          "Processing index",
+          params.link_index,
+          " name ",
+          params.name
+      });
   }
 };
