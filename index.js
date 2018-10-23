@@ -10,9 +10,8 @@ reddit("r/natureisfuckinglit").then(links => {
       getImageData(link.url) //returns image in base64
         .then(image => {
           tumblr.post({
-            caption: link.title,
-            data64: image,
-            source: "http://www.reddit.com/" + link.permalink
+            caption: `<a href="${link.url}">${link.title}</a>`,
+            data64: image
           });
         })
         .catch(err => console.error(err.message));
