@@ -21,5 +21,11 @@ module.exports = {
       })
       .then(result => console.log(result))
       .catch(err => console.error(err));
+  },
+  getQueue: identifier => {
+    return client.blogQueue(identifier);
+  },
+  deletePost: (identifier, params) => {
+    return client.deletePost(identifier, params);
   }
 };
