@@ -3,21 +3,24 @@ const tumblr = require("./clients/tumblrClient.js");
 const getImageData = require("./lib/getImageData.js");
 const path = require("path");
 
-reddit("r/natureisfuckinglit").then(links => {
-  links.forEach((link, index) => {
-    if (path.extname(link.url) == (".jpg" || ".jpeg" || ".png")) {
-      console.log("Processing index ", index, " and name ", link.name);
-      getImageData(link.url) //returns image in base64
-        .then(image => {
-          tumblr.post({
-            caption: link.title,
-            data64: image,
-            source: "http://www.reddit.com/" + link.permalink,
-            link_index: index,
-            name: link.name
-          });
-        })
-        .catch(err => console.error(err.message));
-    }
-  });
-});
+(async () => {
+  try {
+    let links = await reddit("r/natureisfuckinglit");
+    let photoLinks = links.filter(
+      link =>
+        typeof link.url == "string" &&
+        path.extname(link.url) == (".jpg" || ".jpeg" || ".png")
+    );
+    photoLinks.forEach(async link => {
+      let image = await getImageData(link.url);
+      tumblr.post({
+        caption: `<a href="http://reddit.com/${link.permalink}"> ${
+          link.title
+        }</a>`,
+        data64: image
+      });
+    });
+  } catch (err) {
+    console.error(err);
+  }
+})();
