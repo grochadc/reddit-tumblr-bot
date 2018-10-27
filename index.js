@@ -7,6 +7,7 @@ const axios = require("axios");
 const config = require('./bot-config')
 
 (async () => {
+  const config = require('./bot-config')
   try {
     let links = (await reddit(config.subreddit)).filter(
       link =>
