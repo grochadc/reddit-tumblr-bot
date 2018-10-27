@@ -4,6 +4,7 @@ const getImageData = require("./lib/getImageData.js");
 const compare = require("./lib/compare");
 const path = require("path");
 const axios = require("axios");
+const config = require('./bot-config')
 
 (async () => {
   try {
