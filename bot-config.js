@@ -3,7 +3,7 @@ module.exports = {
   tumblr: {
     blog: "natureisfuckinglit",
     credentials: {
-      consumer_key: process.env.CLIENT_KEY,
+      consumer_key: process.env.CLIENT_ID,
       consumer_secret: process.env.CLIENT_SECRET,
       token: process.env.TOKEN,
       token_secret: process.env.SECRET
