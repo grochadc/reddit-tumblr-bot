@@ -3,10 +3,10 @@ module.exports = {
   tumblr: {
     blog: "natureisfuckinglit",
     credentials: {
-      consumer_key: process.env.CONSUMER_KEY,
-      consumer_secret: process.env.CONSUMER_SECRET,
+      consumer_key: process.env.CLIENT_KEY,
+      consumer_secret: process.env.CLIENT_SECRET,
       token: process.env.TOKEN,
-      token_secret: process.env.TOKEN_SECRET
+      token_secret: process.env.SECRET
     }
   },
   subreddit: "natureisfuckinglit",
