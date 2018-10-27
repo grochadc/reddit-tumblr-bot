@@ -6,6 +6,7 @@ const path = require("path");
 const axios = require("axios");
 
 (async () => {
+  const config = require('./bot-config')
   try {
     let links = (await reddit(config.subreddit)).filter(
       link =>
