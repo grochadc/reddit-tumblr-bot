@@ -1,16 +1,16 @@
 require("dotenv").config();
 module.exports = {
   tumblr: {
-    blog: "natureisfuckinglit",
+    blog: "tattoos-bot",
     credentials: {
-      consumer_key: process.env.CONSUMER_KEY,
-      consumer_secret: process.env.CONSUMER_SECRET,
+      consumer_key: process.env.CLIENT_ID,
+      consumer_secret: process.env.CLIENT_SECRET,
       token: process.env.TOKEN,
-      token_secret: process.env.TOKEN_SECRET
+      token_secret: process.env.SECRET
     }
   },
-  subreddit: "natureisfuckinglit",
+  subreddit: "tattoos",
   //server with GET and POST to store an array of ids (jsonstore.io recommended)
   db:
-    "https://www.jsonstore.io/7400e86e797b508a5c9269d5662cf79b0442acd032f8f40cf4bd44faf1521ef8/posted/"
+    "https://www.jsonstore.io/48d04ae3b5b4cf2cb4c8bf97706d066c324795bdbe72e628a6a697c92864fcdc/posted/"
 };
