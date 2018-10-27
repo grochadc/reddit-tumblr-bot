@@ -8,7 +8,7 @@ module.exports = function reddit(subreddit, offline) {
         resolve(JSON.parse(posts).data.children);
       });
     } else {
-      axios("https://www.reddit.com/" + subreddit + "/top.json")
+      axios(`https://www.reddit.com/${subreddit}/top.json`)
         .then(({ data }) => {
           let posts = data.data.children;
           resolve(

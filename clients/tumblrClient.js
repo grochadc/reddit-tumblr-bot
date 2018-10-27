@@ -1,18 +1,19 @@
 require("dotenv").config();
 const tumblr = require("tumblr.js");
+const config = require('../bot-config')
 
 var client = tumblr.createClient({
-  consumer_key: process.env.CLIENT_ID,
-  consumer_secret: process.env.CLIENT_SECRET,
-  token: process.env.TOKEN,
-  token_secret: process.env.SECRET,
+  consumer_key: config.tumblr.credentials.consumer_key,
+  consumer_secret: config.tumblr.credentials.consumer_secret,
+  token: config.tumblr.credentials.token,
+  token_secret: config.tumblr.credentials.token_secret,
   returnPromises: true
 });
 
 module.exports = {
   post: params => {
     client
-      .createPhotoPost("natureisfuckinglitbot.tumblr.com", {
+      .createPhotoPost(`${params.blogName}.tumblr.com`, {
         type: "photo",
         state: "queue",
         tags: "natureisfuckinglit, nature, photography",
