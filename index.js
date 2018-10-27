@@ -16,7 +16,7 @@ const axios = require("axios");
     let posted = (await axios(
       "https://www.jsonstore.io/7400e86e797b508a5c9269d5662cf79b0442acd032f8f40cf4bd44faf1521ef8/posted/"
     )).data.result;
-    let queue = compare(posted, links);
+    let queue = posted ? compare(posted, links) : links;
     console.log("Queue ", queue.length);
     queue.forEach(async link => {
       let image = await getImageData(link.url);
@@ -27,7 +27,7 @@ const axios = require("axios");
         data64: image
       });
     });
-    let merged = posted.concat(queue.map(link => link.name));
+    let merged = posted ? posted.concat(queue.map(link => link.name)) : queue.map(link => link.name);
     console.log("Merged ", merged.length);
     await axios.post(
       "https://www.jsonstore.io/7400e86e797b508a5c9269d5662cf79b0442acd032f8f40cf4bd44faf1521ef8/posted/",
