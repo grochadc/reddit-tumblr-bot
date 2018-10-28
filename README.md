@@ -17,7 +17,7 @@ $ clone https://github.com/grochadc/reddit-tumblr-bot.git
 configure
 
 ```javascript
-// Export an object with the configuration
+// On bot-config.js Export an object with the configuration
 module.exports = {
   tumblr: {
     blog: "natureisfuckinglitbot",
@@ -39,6 +39,8 @@ and run it:
 ```shell
 $ node index.js
 ```
+
+NOTE: This repo comes with a config file example inside `config-example/` but you'll have to move it to the root to make the script work.
 
 ### Configuration API
 
