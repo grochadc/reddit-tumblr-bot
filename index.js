@@ -26,7 +26,8 @@ const axios = require("axios");
           link.title
         }</a>`,
         data64: image,
-        blogName: config.tumblr.blog
+        blogName: config.tumblr.blog,
+        config.tumblr.tags
       });
     });
     let merged = posted ? posted.concat(queue.map(link => link.name)) : queue.map(link => link.name);

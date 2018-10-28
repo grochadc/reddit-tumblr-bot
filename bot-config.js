@@ -2,6 +2,7 @@ require("dotenv").config();
 module.exports = {
   tumblr: {
     blog: "natureisfuckinglit",
+    tags: "nature, natureisfuckinglit, photography"
     credentials: {
       consumer_key: process.env.CLIENT_ID,
       consumer_secret: process.env.CLIENT_SECRET,

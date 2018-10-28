@@ -16,7 +16,7 @@ module.exports = {
       .createPhotoPost(`${params.blogName}.tumblr.com`, {
         type: "photo",
         state: "queue",
-        tags: "natureisfuckinglit, nature, photography",
+        tags: params.tags,
         caption: params.caption,
         data64: params.data64
       })
