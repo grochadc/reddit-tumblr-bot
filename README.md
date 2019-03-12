@@ -4,9 +4,9 @@ A bot that scrapes subreddits and posts on tumblr.
 
 This bot does two simple things:
 
-1. Calls the [Reddit](https://www.reddit.com/dev/api/) JSON API to retrieve top posts from a specific subreddit.
+1.  Calls the [Reddit](https://www.reddit.com/dev/api/) JSON API to retrieve top posts from a specific subreddit.
 
-2. Posts all the images (including captions and permalinks) to a specified [Tumblr](https://www.tumblr.com/docs/en/api/v2) blog.
+2.  Posts all the images (including captions and permalinks) to a specified [Tumblr](https://www.tumblr.com/docs/en/api/v2) blog.
 
 All you have to do is clone this repo:
 
@@ -29,9 +29,9 @@ module.exports = {
     }
   },
   subreddit: "natureisfuckinglit",
-  db: "https://www.jsonstore.io/7400e86e797b508a5c9269d5662cf79b0442acd032f8f40cf4bd44faf1521ef8/posted/"
+  db:
+    "https://www.jsonstore.io/7400e86e797b508a5c9269d5662cf79b0442acd032f8f40cf4bd44faf1521ef8/posted/"
 };
-
 ```
 
 and run it:
@@ -40,7 +40,7 @@ and run it:
 $ node index.js
 ```
 
-NOTE: This repo comes with a config file example inside `config-example/` but you'll have to move it to the root to make the script work.
+NOTE: This repo comes with a `bot-config-example.js` but you'll have to rename it `bot-config.js` to make the script work.
 
 ### Configuration API
 
@@ -55,8 +55,6 @@ NOTE: This repo comes with a config file example inside `config-example/` but yo
 | tumblr.credentials.token_secret:    | String | Your tumblr API token secret                                                        |
 | subreddit:                          | String | The name of the subreddit you want to scrape                                        |
 | db:                                 | String | URL of a server that can store a simple array ([jsonstore.io]() recommended         |
-
-
 
 ## Deploying
 
